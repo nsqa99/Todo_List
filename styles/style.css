@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to top, #E06C78 50%, #FA9284);
+    width: 100%;
+ 
+}
+
+::placeholder {
+    font-style: italic;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    width: 420px;
+    height: 530px;
+    border: 3px solid rgba(247, 136, 155, 0.945);
+    background-color: rgba(225, 247, 247, 0.952);
+    margin: 50px auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* ------Heading ----------*/
+.heading #today-date {
+    font-size: 30px;
+    width: 30%;
+    margin: 50px 0 20px 20px;
+    color: rgb(240, 65, 65);
+}
+
+/* ------------Input field------------ */
+.input-field {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.input-field #field {
+    width: 88%;
+    border: 1px solid rgb(219, 245, 245);
+    margin-right: 5px;
+    padding: 8px;
+    background-color: rgba(211, 226, 226, 0.39);
+    transition: background-color .5s, box-shadow .25s;
+    
+}
+
+.input-field #field:focus {
+    background-color: white;
+    -webkit-box-shadow: 0 0 2px 1px #ec5656;
+    -moz-box-shadow: 0 0 2px 1px #ec5656;
+    box-shadow: 0 0 2px 1px #ec5656;
+}
+
+.input-field #field:hover {
+    background-color: #ffff;
+}
+
+
+
+
+
+.input-field #btn {
+    padding: 3px 15px;
+    text-align: center;
+    border: 1px solid rgb(219, 245, 245);
+    color: white;
+    background-color: rgba(204, 204, 204, 0.664);
+    font-size: 100%;
+    transition: background-color .5s;
+    cursor: pointer;
+}
+
+.input-field #btn:hover, 
+.input-field #btn:active {
+    background-color: rgb(245, 101, 101);
+}
+
+/* --------Task--------- */
+
+label, input[type=checkbox], #block-div {
+    cursor: pointer;
+}
+
+
+#list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+input[type=checkbox] {
+    margin-right: 20px;
+    background-color: #cccc;
+    transform: scale(1.5);
+}
+
+input[type=checkbox]:checked + label{
+    color: rgb(250, 248, 248);
+    text-decoration: line-through;
+}
+
+
+#block-div {
+    width: 80%;
+    background-color: #cccc;
+    padding: 10px;
+    margin: 5px auto;
+    transition: background-color .5s;
+    animation: slidein .5s;
+}
+
+@keyframes slidein {
+  from {transform: translateX(100%);}
+  to {transform: translateX(0);}
+}
+
+
+#block-div:hover {
+    background-color: rgb(245, 101, 101);
+    
+}
+
+/* --------Icon------------ */
+
+.icon {
+    visibility: hidden;
+    cursor: pointer;
+    color: white;
+    float: right;
+    
+}
+
+.icon:hover {
+    color: black;
+}
+
+
+/* --------Counter--------- */ 
+#counter {
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: rgb(31, 30, 30);
+}
