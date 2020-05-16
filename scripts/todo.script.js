@@ -88,7 +88,7 @@ document.addEventListener('click', (e) => {
             let blockDivNode = e.target.parentNode;
             blockDivNode.style.transform = 'translateX(200%)';
             blockDivNode.style.transition = 'transform .5s';
-            
+            blockDivNode.style.transitionTimingFunction = 'ease';
             setTimeout(() => {blockDivNode.remove();}, 500);
         }
     }
