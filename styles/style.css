@@ -89,12 +89,22 @@ p {
 .input-field #btn:hover, 
 .input-field #btn:active {
     background-color: rgb(245, 101, 101);
+    
 }
 
 /* --------Task--------- */
 
-label, input[type=checkbox], #block-div {
+label, .task-field, input[type=checkbox], #block-div {
     cursor: pointer;
+}
+
+.task-field {
+    background-color: rgb(206, 197, 197);
+    color: black;
+    width: 70%;
+    border-style: none;
+    padding: 5px;
+    transition: background-color .5s;
 }
 
 
@@ -105,7 +115,7 @@ label, input[type=checkbox], #block-div {
 
 input[type=checkbox] {
     margin-right: 20px;
-    background-color: #cccc;
+    background-color: rgba(223, 219, 219, 0.8);
     transform: scale(1.5);
 }
 
@@ -117,7 +127,7 @@ input[type=checkbox]:checked + label{
 
 #block-div {
     width: 80%;
-    background-color: #cccc;
+    background-color: rgb(206, 197, 197);
     padding: 10px;
     margin: 5px auto;
     transition: background-color .5s;
@@ -130,9 +140,8 @@ input[type=checkbox]:checked + label{
 }
 
 
-#block-div:hover {
+#block-div:hover, #block-div:hover .task-field {
     background-color: rgb(245, 101, 101);
-    
 }
 
 /* --------Icon------------ */
@@ -142,13 +151,23 @@ input[type=checkbox]:checked + label{
     cursor: pointer;
     color: white;
     float: right;
-    
+    margin-top: 5px;
 }
 
 .icon:hover {
     color: black;
+    transform: scale(1.2);
 }
 
+.edit-icon {
+    cursor: pointer;
+    margin-left: 20px;
+    transition: transform 1s;
+}
+
+.edit-icon:hover {
+    transform: rotate(360deg);
+}
 
 /* --------Counter--------- */ 
 #counter {

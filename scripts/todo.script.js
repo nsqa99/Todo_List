@@ -59,18 +59,21 @@ inputField.addEventListener('keydown', (e) => {
 //Click anywhere on the task bar to mark the task completed
 const handleCheckTask = (node) => {
     let inputChild = node.children[0];
-    let label = node.children[1];
+    let taskInput = node.children[1];
     let icon = node.children[2];
     node.style.cursor = 'default';
     inputChild.style.cursor = 'default';
-    label.style.cursor = 'default';
+    taskInput.style.cursor = 'default';
     icon.style.visibility = 'visible';
     if (!inputChild.checked) cnt--;
     inputChild.checked = true;   
     addCounting(cnt);
     inputChild.disabled = true;
     node.style.backgroundColor = 'rgb(245, 101, 101)';
+    taskInput.style.backgroundColor = 'rgb(245, 101, 101)';
 }
+
+var notInput = true;
 
 document.addEventListener('click', (e) => {
     if (e.target){
@@ -78,18 +81,32 @@ document.addEventListener('click', (e) => {
             handleCheckTask(e.target.parentNode);
         }
         if (e.target.id === 'block-div') {
-            handleCheckTask(e.target);
+            if (notInput) handleCheckTask(e.target);
         }
         if (e.target.id.includes('task')) {
             e.target.checked = false;
-            handleCheckTask(e.target.parentNode);
+            if (notInput) handleCheckTask(e.target.parentNode);
         }
-        if (e.target.tagName === 'SPAN') {
+        if (e.target.id.includes('trash-icon')) {
             let blockDivNode = e.target.parentNode;
             blockDivNode.style.transform = 'translateX(200%)';
             blockDivNode.style.transition = 'transform .5s';
             blockDivNode.style.transitionTimingFunction = 'ease';
             setTimeout(() => {blockDivNode.remove();}, 500);
+        }
+        if (e.target.id.includes('edit-icon')) {
+            notInput = false;
+            let blockDivNode = e.target.parentNode;
+            let taskInp = blockDivNode.children[1];
+            //console.log(taskInp);
+            blockDivNode.style.cursor = 'default';
+            blockDivNode.children[0].style.cursor = 'default';
+            blockDivNode.children[0].disabled = true;
+            taskInp.disabled = false;
+            taskInp.focus();
+            taskInp.style.cursor = 'text';
+            taskInp.style.backgroundColor = 'rgb(255, 255, 254)';
+            e.target.style.visibility = 'hidden';
         }
     }
     
@@ -111,14 +128,27 @@ const addTasks = (cnt) => {
     task.setAttribute('type', 'checkbox');
     task.id = 'task'+cnt;
     task.class = 'tasks';
-    let label = document.createElement('label');
-    label.setAttribute('for', 'task'+cnt);
-    label.innerHTML = inputField.value;
+    // let label = document.createElement('label');
+    // label.setAttribute('for', 'task'+cnt);
+    // label.innerHTML = inputField.value;
+    let valueField = document.createElement('input');
+    valueField.id = 'task-field'+cnt;
+    valueField.className = 'task-field';
+    valueField.value = inputField.value;
+    valueField.disabled = true;
+
     let icon = document.createElement('span');
     icon.className = 'fas fa-trash icon';
+    icon.id = "trash-icon"+cnt;
+
+    let editIcon = document.createElement('span');
+    editIcon.className = 'far fa-edit edit-icon';
+    editIcon.id = "edit-icon"+cnt;
     div.appendChild(task);
-    div.appendChild(label);
+    
+    div.appendChild(valueField);
     div.appendChild(icon);
+    div.appendChild(editIcon);
     listTasks.appendChild(div);
     
 }
