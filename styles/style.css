@@ -121,7 +121,7 @@ input[type=checkbox]:checked + label{
     padding: 10px;
     margin: 5px auto;
     transition: background-color .5s;
-    animation: slidein .5s;
+    animation: slidein .5s ease;
 }
 
 @keyframes slidein {
