@@ -99,12 +99,22 @@ label, .task-field, input[type=checkbox], #block-div {
 }
 
 .task-field {
-    background-color: rgb(206, 197, 197);
+    background-color: rgb(243, 233, 233);
     color: black;
     width: 70%;
     border-style: none;
     padding: 5px;
     transition: background-color .5s;
+    position: absolute;
+    right: 20%;
+    bottom: 13%;
+    visibility: hidden;
+}
+
+label {
+   position: relative; 
+   overflow-wrap: break-word;
+   max-width: 70%;
 }
 
 
@@ -132,6 +142,7 @@ input[type=checkbox]:checked + label{
     margin: 5px auto;
     transition: background-color .5s;
     animation: slidein .5s ease;
+    position: relative;
 }
 
 @keyframes slidein {
@@ -151,7 +162,7 @@ input[type=checkbox]:checked + label{
     cursor: pointer;
     color: white;
     float: right;
-    margin-top: 5px;
+    margin-right: 5px;
 }
 
 .icon:hover {
@@ -161,7 +172,8 @@ input[type=checkbox]:checked + label{
 
 .edit-icon {
     cursor: pointer;
-    margin-left: 20px;
+    position: absolute;
+    left: 90%;
     transition: transform 1s;
 }
 
