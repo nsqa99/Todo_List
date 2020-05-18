@@ -66,8 +66,7 @@ const handleCheckTask = (node) => {
     node.style.backgroundColor = 'rgb(245, 101, 101)';
     
     inputChild.style.cursor = 'default';
-    inputChild.checked = true;   
-    inputChild.disabled = true;
+    
     
     taskInput.style.cursor = 'default';
     taskInput.style.backgroundColor = 'rgb(245, 101, 101)';
@@ -75,6 +74,8 @@ const handleCheckTask = (node) => {
     icon.style.visibility = 'visible';
     
     if (!inputChild.checked) cnt--;
+    inputChild.checked = true;   
+    inputChild.disabled = true;
     
     node.children[2].style.visibility = 'hidden';
     node.children[4].style.visibility = 'hidden';
